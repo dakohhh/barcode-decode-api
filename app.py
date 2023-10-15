@@ -2,6 +2,7 @@ import os
 import certifi
 from fastapi import FastAPI
 from routers.user import router as user
+from routers.barcode import router as barcode
 from response.response import CustomResponse 
 from exceptions.custom_exception import *
 from dotenv import load_dotenv
@@ -22,6 +23,7 @@ app = FastAPI()
 
 
 app.include_router(user)
+app.include_router(barcode)
 app.add_exception_handler(UserExistException, user_exist_exception_handler)
 app.add_exception_handler(UnauthorizedException, unauthorized_exception_handler)
 app.add_exception_handler(ServerErrorException, server_exception_handler)
