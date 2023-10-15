@@ -9,9 +9,8 @@ router = APIRouter(tags=["User"], prefix="/user")
 
 
 
-@router.post("/")
+@router.get("/")
 async def get_user(request:Request, background_task:BackgroundTasks):
-
 
     return CustomResponse("user successfully")
 
