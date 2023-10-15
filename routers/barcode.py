@@ -1,5 +1,5 @@
-import numpy as np
 import cv2 as cv
+import numpy as np
 from fastapi import Request, APIRouter, File, UploadFile
 from response.response import CustomResponse
 from pyzbar.pyzbar import decode
@@ -28,8 +28,6 @@ async def get_barcode_data(request:Request, image:UploadFile = File(...)):
         barcode_type = barcode.type
         decoded_barcodes.append({"type": barcode_type, "data": barcode_data})
 
-
-    print(decoded_barcodes)
 
 
     return CustomResponse("barcode scanned", data=decoded_barcodes)
