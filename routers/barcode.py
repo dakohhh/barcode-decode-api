@@ -1,5 +1,5 @@
-import numpy as np
 import cv2 as cv
+import numpy as np
 from fastapi import Request, APIRouter, File, UploadFile
 from response.response import CustomResponse
 from pyzbar.pyzbar import decode
