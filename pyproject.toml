@@ -1,22 +1,19 @@
 [tool.poetry]
-name = "barcode scanner"
+name = "barcode decode api"
 version = "0.1.0"
 description = ""
 authors = ["Dakoh Wisdom <wiizzydreadmill@gmail.com>"]
-license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.103.2"
-sqlalchemy = "^2.0.22"
-opencv-python = "^4.8.1.78"
-uvicorn = "^0.23.2"
-python-dotenv = "^1.0.0"
-certifi = "^2023.7.22"
-bcrypt = "^4.0.1"
 pyzbar = "^0.1.9"
+uvicorn = "^0.23.2"
+certifi = "^2023.7.22"
+opencv-python = "^4.8.1.78"
 python-multipart = "^0.0.6"
+python-dotenv = "^1.0.0"
 
 
 [build-system]

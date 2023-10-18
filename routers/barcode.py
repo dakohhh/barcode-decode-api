@@ -2,8 +2,7 @@ import cv2 as cv
 import numpy as np
 from fastapi import Request, APIRouter, File, UploadFile
 from response.response import CustomResponse
-from pyzbar.pyzbar import decode
-
+from utils.barcode import Barcode
 
 
 router = APIRouter(tags=["Barcode"], prefix="/barcode")
@@ -16,18 +15,9 @@ async def get_barcode_data(request:Request, image:UploadFile = File(...)):
 
     image_data = await image.read()
 
-    nparr = np.frombuffer(image_data, np.uint8)
+    barcode = Barcode(image_data)
 
-    image = cv.imdecode(nparr, cv.IMREAD_COLOR)
-
-    barcodes = decode(image)
-
-    decoded_barcodes = []
-    for barcode in barcodes:
-        barcode_data = barcode.data.decode('utf-8')
-        barcode_type = barcode.type
-        decoded_barcodes.append({"type": barcode_type, "data": barcode_data})
-
+    decoded_barcodes = await barcode.get_data()
 
     return CustomResponse("barcode scanned", data=decoded_barcodes)
 
