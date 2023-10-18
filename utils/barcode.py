@@ -5,14 +5,15 @@ from pyzbar.pyzbar import decode
 
 
 class Barcode():
-    def __init__(self, image) -> None:
+    def __init__(self, image:) -> None:
         
         self.image = image
 
 
     async def get_data(self):
 
-        image_data = await file.read()
+        image_data = await self.image.read()
+
         image_array = bytearray(image_data)
 
         # Decode the barcode(s) in the image

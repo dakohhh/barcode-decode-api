@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ibenefit"
+name = "barcode scanner"
 version = "0.1.0"
 description = ""
 authors = ["Dakoh Wisdom <wiizzydreadmill@gmail.com>"]
